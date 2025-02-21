@@ -3,12 +3,27 @@ import React from 'react'
 const ApodList = ({apods = []}) => {
 
   return (
-    <div className='grid gap-2'>
+    <div className='grid gap-4 md:max-w-screen-lg'>
+   
         {
             apods.map((apod, index) =>(
-                <div key={index}>
-                    <h3 className='font-semibold text-2xl'>{apod.title}</h3>
-                </div>
+                  <>
+                    <div className='grid gap-2  p-6 shadow-xl bg-white'  key={index}>
+                      <h3 className='font-semibold text-xl'>{apod.title}</h3>
+                    <div 
+                    className='grid grid-cols-2 gap-2 '>
+                        <img className='rounded w-[90%] h-[300px] object-cover' src={apod.url} alt="" />
+                        <div className="grid gap-2 content-center">
+                        <h4 className='font-semibold text-sm text-zinc-800'>Fecha: {apod.date}</h4>
+                            <p className='text-justify text-sm'>{apod.explanation}</p>
+                           
+                        </div>
+                        
+                    </div>
+
+                    </div>
+                  
+                  </>
             ))
         }
     </div>
