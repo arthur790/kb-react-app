@@ -13,9 +13,9 @@ const APodSearch = ({ changeSearch }) => {
     return (
         <>
             <div className="grid gap-2">
-                <h3 className="text-sm font-bold">Realiza una busqueda:</h3>
-                <div className="flex gap-2 justify-between">
-                    <div className="flex justify-center gap-4 rounded-md">
+                <h3 className="text-sm font-bold md:justify-start ">Realiza una busqueda:</h3>
+                <div className="md:flex grid gap-2 md:justify-between ">
+                    <div className="md:flex grid md:justify-center gap-4 rounded-md">
                         <div className="grid">
                         <label htmlFor="date" >Fecha</label>
                             <input  
@@ -54,9 +54,9 @@ const APodSearch = ({ changeSearch }) => {
                             />
                         </div>
                     </div>
-                    <div className="grid justify-center gap-4 w-full">
-                        <button  className=' bg-blue-app-500 text-black text-center px-4 py-2 rounded-md border
-                      hover:bg-blue-app-600 hover:text-white  transition-colors min-w-[150px] max-h-[50px] mt-6'
+                    <div className="grid  gap-4 md:w-full ">
+                        <button  className=' bg-blue-app-500 text-black text-center md:px-4 md:py-2 py-4 rounded-md border
+                      hover:bg-blue-app-600 hover:text-white  transition-colors min-w-[150px] md:max-h-[50px] mt-6'
                         onClick={() => changeSearch(values)}
                         >Buscar</button>
                     </div>
