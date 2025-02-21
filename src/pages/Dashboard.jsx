@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>Dashboard is private page</div>
+      <div className='grid text-center'>Dashboard is private page</div>
       <div>
         <h1>Bienvenido</h1>
         <p>{profile.name}</p>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div>Home is public page</div>
+    <div className='grid p-4 text-4xl text-center'>Home is public page</div>
   )
 }
 
