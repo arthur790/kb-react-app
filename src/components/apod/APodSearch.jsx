@@ -6,7 +6,7 @@ const APodSearch = ({ changeSearch }) => {
         date: "",
         startDate: "",
         endDate: "",
-        count: 10
+        count: "10"
     });
 
 
@@ -22,7 +22,7 @@ const APodSearch = ({ changeSearch }) => {
                             className="px-4 py-2 border-[2px] border-blue-app-600 outline-none 
                                 rounded-md   " type="date" name="date" id="date"
 
-                                onChange={(e) => setValues({...values, date: e.target.value })}
+                                onChange={(e) => setValues({...values, date: e.target.value, count: "" })}
                             />
 
                         </div>
@@ -31,7 +31,7 @@ const APodSearch = ({ changeSearch }) => {
                         <label htmlFor="start-date" >Fecha Inicio</label>
                             <input  className="px-4 py-2 border-[2px] border-blue-app-600 outline-none 
                                 rounded-md " type="date" name="start-date" id="start-date"
-                                onChange={(e) => setValues({ ...values, startDate: e.target.value })}
+                                onChange={(e) => setValues({ ...values, startDate: e.target.value,  count: "",  date: ""  })}
 
                             />
 
@@ -41,7 +41,7 @@ const APodSearch = ({ changeSearch }) => {
                         <label htmlFor="end-date" >Fecha Fin</label>
                             <input  className="px-4 py-2 border-[2px] border-blue-app-600 outline-none 
                                 rounded-md " type="date" name="end-date" id="end-date"
-                                onChange={(e) => setValues({...values, endDate: e.target.value})}
+                                onChange={(e) => setValues({...values, endDate: e.target.value,  count: "", date: "" })}
                             />
 
                         </div>

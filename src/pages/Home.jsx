@@ -3,6 +3,8 @@ import { getApods } from '../core/services/nasa-public-api-service';
 import ApodList from '../components/apod/ApodList';
 import ApodFilter from '../components/apod/ApodFilter';
 import APodSearch from '../components/apod/APodSearch';
+import { ToastContainer, toast } from 'react-toastify';
+import { errorsNasa } from '../core/util/errors-util';
 
 const Home = () => {
 
@@ -14,7 +16,7 @@ const Home = () => {
     endDate: "",
     count: 10
   })
-  const count = 10
+
 
  
 
@@ -32,9 +34,16 @@ const Home = () => {
                   (Array.isArray(res.data)) ? setApods(res.data) : setApods([res.data])
                 }).catch(error =>{
                   console.log('error', error);
+                  showErrors(error);
                 }).finally(() =>{
                 });
 
+  }
+  const showErrors = (err) =>{
+    
+    toast.error(errorsNasa(err), {
+      position: "top-right"
+    });
   }
 
   const filteredApod = () =>{
@@ -50,6 +59,7 @@ const Home = () => {
         <APodSearch changeSearch={changeSearch}/>
         <ApodFilter changeFilter={changeFilter}/>
         <ApodList apods={filteredApod()}/>
+        <ToastContainer />
       </div>
 
     </>
