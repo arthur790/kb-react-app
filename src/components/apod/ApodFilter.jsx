@@ -2,7 +2,7 @@ import React from 'react'
 
 const ApodFilter = ({changeFilter}) => {
   return (
-    <div className='grid gap-2 '>
+    <div className='grid gap-2 md:mr-3'>
         <h3 className="text-sm font-bold">Filtra los resultados:</h3>
         <div className="flex justify-between">
           <input   
