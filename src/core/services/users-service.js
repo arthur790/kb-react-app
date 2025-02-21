@@ -13,3 +13,11 @@ export const registerUser = (name, roleId = 1, email, password) =>{
         password
     })
 }
+
+export const getProfileUser = (token) =>{
+    return client.get('/users/protected',{
+        headers:{
+            "x-token": token
+        }
+    })
+}
