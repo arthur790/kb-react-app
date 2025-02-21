@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <>
-      <div>Login</div>
+
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={onSubmitLogin}
@@ -50,29 +50,52 @@ const Login = () => {
             touched,
             handleBlur,
             isSubmitting }) => (
-          <form onSubmit={handleSubmit}>
-            <input
+          <form 
+          className='w-[90%] h-full max-w-md mx-auto py-16 px-6 flex flex-col gap-4 justify-center'
+          onSubmit={handleSubmit}>
+            <article className="space-y-4 mb-8">
+              <h2 className="text-3xl font-medium text-blue-app-600">Inicio de sesión</h2>
+              <p className="font-light text-zinc-600">Bienvenido a <b className="text-blue-app-700 font-bold"> Kapital Bank</b></p>
+            </article>
+
+            <div className="grid">
+              <label htmlFor="email" >Correo</label>
+              <input
               type="text"
-              placeholder="email"
+              placeholder="Ingrese correo"
+               className="input-reset"
               value={values.email}
               onChange={handleChange}
               name="email"
               onBlur={handleBlur}
             />
-            <input
-              type="password"
-              placeholder="password"
-              value={values.password}
-              onChange={handleChange}
-              name="password"
-              onBlur={handleBlur}
-            />
-            <button
-              type="submit"
-              disabled={isSubmitting}
-            >
-              Login
-            </button>
+              </div>
+              <div className="grid">
+                <label htmlFor="email" >Contraseña</label>
+                <input
+                type="password"
+                placeholder="password"
+                className="input-reset"
+                value={values.password}
+                onChange={handleChange}
+                name="password"
+                onBlur={handleBlur}
+              />
+              </div>
+
+              <article className="grid gap-6 mt-8">
+                <button
+                className=' bg-blue-app-500 text-black text-center p-4 rounded-3xl border
+              hover:bg-blue-app-600 hover:text-white  transition-colors'
+                type="submit"
+                disabled={isSubmitting}
+              >
+                Login
+              </button>
+
+              </article>
+           
+           
           </form>
         )}
       </Formik>

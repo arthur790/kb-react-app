@@ -25,7 +25,6 @@ const Register = () => {
 
   return (
     <>
-      <div>Register</div>
 
       <Formik
               initialValues={{ name: "", email: "", password: "" }}
@@ -39,37 +38,64 @@ const Register = () => {
                   touched,
                   handleBlur,
                   isSubmitting }) => (
-                <form onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    placeholder="nombre completo"
-                    value={values.name}
-                    onChange={handleChange}
-                    name="name"
-                    onBlur={handleBlur}
-                  />
-                  <input
-                    type="text"
-                    placeholder="email"
-                    value={values.email}
-                    onChange={handleChange}
-                    name="email"
-                    onBlur={handleBlur}
-                  />
-                  <input
-                    type="password"
-                    placeholder="password"
-                    value={values.password}
-                    onChange={handleChange}
-                    name="password"
-                    onBlur={handleBlur}
-                  />
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    Registrar
-                  </button>
+                <form
+                 className='w-[90%] h-full max-w-md mx-auto py-16 px-6 flex flex-col gap-4 justify-center'
+                 onSubmit={handleSubmit}>
+                   <article className="space-y-4 mb-8">
+                    <h2 className="text-3xl font-medium text-blue-app-600">Registro</h2>
+                  </article>
+                  <div className="grid">
+                      <label htmlFor="name" >Nombre completo</label>
+                      <input
+                            type="text"
+                            placeholder="ingrese nombre completo"
+                            value={values.name}
+                            onChange={handleChange}
+                            className="input-reset"
+                            name="name"
+                            onBlur={handleBlur}
+                          />
+                    </div>
+                
+                    <div className="grid">
+                      <label htmlFor="email" >Correo</label>
+                      <input
+                        type="text"
+                        placeholder="Ingrese correo"
+                        value={values.email}
+                        onChange={handleChange}
+                        className="input-reset"
+                        name="email"
+                        onBlur={handleBlur}
+                      />
+                    </div>
+                 
+                    <div className="grid">
+                        <label htmlFor="email" >Contraseña</label>
+                        <input
+                        type="password"
+                        placeholder="password"
+                        value={values.password}
+                        onChange={handleChange}
+                        className="input-reset"
+                        name="password"
+                        onBlur={handleBlur}
+                      />
+                    </div>
+
+                    <article className="grid gap-6 mt-8">
+                        <button
+                        className=' bg-blue-app-500 text-black text-center p-4 rounded-3xl border
+                      hover:bg-blue-app-600 hover:text-white  transition-colors'
+                        type="submit"
+                        disabled={isSubmitting}
+                      >
+                        Registrar
+                      </button>
+
+                    </article>
+                 
+                 
                 </form>
               )}
             </Formik>

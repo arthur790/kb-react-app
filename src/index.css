@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components{
+    .input-reset{
+        @apply border-b border-b-black outline-none font-light p-2;
+    }
+}
 
 @layer utilities{
 
