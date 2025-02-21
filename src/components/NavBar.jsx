@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import logo from '../assets/react.svg'
+import { useUserContext } from '../context/UserContext';
 
 const NavBar = () => {
+
+    const { user, setUser} = useUserContext();
 
     return (
         <div className="bg-white text-black 
@@ -10,10 +13,16 @@ const NavBar = () => {
             <header>
 
                 <nav className="flex h-20 items-center justify-between">
-
-                    <NavLink to="/" className="w-[40% max-w-[130px]">
-                        <img src={logo} className="block w-full" />
-                    </NavLink>
+                    {
+                         user ? 
+                         <NavLink to="/dashboard" className="w-[40% max-w-[130px]">
+                            <img src={logo} className="block w-full" />
+                        </NavLink> :
+                        <NavLink to="/" className="w-[40% max-w-[130px]">
+                            <img src={logo} className="block w-full" />
+                       </NavLink> 
+                    }
+                    
 
                     <input type="checkbox" id="menu" className="peer/menu hidden" />
 
@@ -28,17 +37,32 @@ const NavBar = () => {
                             auto-rows-max content-center justify-items-center clip-circle-0 peer-checked/menu:clip-circle-full 
                             transition-[clip-path] duration-500 
                             md:clip-circle-full md:relative md:grid-flow-col md:p-0 md:bg-transparent">
-                        <li>
-                            <NavLink to="/">Home</NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink to="/login">Login</NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink to="/register">Registro</NavLink>
-                        </li>
+                                {
+                                    user ? <li>
+                                                <NavLink to="/dashboard">Dashboard</NavLink>
+                                            </li> :
+                                            <li>
+                                            <NavLink to="/">Home</NavLink>
+                                        </li>
+                                }
+                       
+                        {
+                            user ? 
+                                <a  onClick={() => setUser(false)}>Logout</a>
+                                :
+                                
+                                  <>
+                                    <li>
+                                    <NavLink to="/login">Login</NavLink>
+                                    </li>
+            
+                                    <li>
+                                        <NavLink to="/register">Registro</NavLink>
+                                    </li>
+                                
+                                  </>
+                        }
+                       
                     </ul>
 
                 </nav>
