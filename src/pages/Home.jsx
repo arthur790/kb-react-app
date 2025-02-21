@@ -16,18 +16,7 @@ const Home = () => {
   })
   const count = 10
 
-  useEffect(() =>{
-
-    getApods({count})
-              .then((res) =>{
-                console.log('res', res);
-                setApods(res.data)
-              }).catch(error =>{
-                console.log('error', error);
-              }).finally(() =>{
-              })
-
-  },[]);
+ 
 
   const changeFilter = (valueFilter) =>{
     console.log('changeFilter', valueFilter);
@@ -36,6 +25,16 @@ const Home = () => {
   const changeSearch = (values) =>{
     console.log('values search', values);
     setSearch(values);
+
+      getApods(values.date, values.startDate, values.endDate, values.count)
+                .then((res) =>{
+                  console.log('res', res);
+                  (Array.isArray(res.data)) ? setApods(res.data) : setApods([res.data])
+                }).catch(error =>{
+                  console.log('error', error);
+                }).finally(() =>{
+                });
+
   }
 
   const filteredApod = () =>{

@@ -9,10 +9,16 @@ const client = axios.create({
   });
 
 
-  export const getApods = (prods) =>{
+  export const getApods = (date, startDate, endDate, count) =>{
+    const map = new Map();
+    if (date != "") map.set('date', date);
+    if (startDate != "") map.set('start_date', startDate);
+    if (endDate != "") map.set('end_date', endDate);
+
       return client.get('/apod',{
           params: {
-            ...prods
+            ...map,
+            count
           }
       })
   }
