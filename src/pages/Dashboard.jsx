@@ -26,11 +26,13 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='grid text-center'>Dashboard is private page</div>
-      <div>
-        <h1>Bienvenido</h1>
-        <p>{profile.name}</p>
+      <div className='grid text-center pt-4'>
+      <div className='grid gap-4'>
+        <h1 className='text-blue-app-800 font-semibold text-2xl'>Bienvenido</h1>
+        <p className='font-medium '>{profile.name}</p>
       </div>
+      </div>
+      
     </>
   )
 }

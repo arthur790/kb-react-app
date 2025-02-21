@@ -28,6 +28,9 @@ export default {
       backgroundImage: {
         "open-menu": "url('./assets/menu.svg')",
         "close-menu": "url('./assets/close.svg')"
+      },
+      screens:{
+        'md': '870px',
       }
     },
   },
