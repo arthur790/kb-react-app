@@ -45,10 +45,13 @@ const Home = () => {
 
   return (
     <>
-      <div className='grid p-4 text-4xl text-center'>Home is public page</div>
-      <APodSearch changeSearch={changeSearch}/>
-      <ApodFilter changeFilter={changeFilter}/>
-      <ApodList apods={filteredApod()}/>
+      <div className='w-full h-full  mx-auto py-16 px-6 grid gap-4 justify-center'>
+        <h3 className="text-3xl font-medium text-blue-app-600 text-center">Panel publico de la Nasa</h3>
+        <APodSearch changeSearch={changeSearch}/>
+        <ApodFilter changeFilter={changeFilter}/>
+        <ApodList apods={filteredApod()}/>
+      </div>
+
     </>
   )
 }
