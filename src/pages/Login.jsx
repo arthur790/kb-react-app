@@ -3,19 +3,28 @@ import { useUserContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from "yup";
+import { login } from "../core/services/auth-service"
 
 const Login = () => {
-  const { user} = useUserContext();
+  const { user, setUser} = useUserContext();
   const navigate = useNavigate();
 
   useEffect(() =>{
     if (user) navigate("/dashboard")
   },[user]);
 
-  const onSubmitLogin = async (values, { setSubmitting, setErrors, resetForm }) => {
-    console.log('onSubmit', values);
+  const onSubmitLogin = async ({email, password}, { setSubmitting, setErrors, resetForm }) => {
+    console.log('onSubmit', {email, password});
 
-    //setSubmitting(false);
+    
+      login(email, password)
+        .then((res) =>{
+          setUser(res.data)
+        }).catch(error =>{
+          console.log('error', error)
+        }).finally(() =>{
+          setSubmitting(false);
+        })
   }
 
   const validationLoginSchema = Yup.object().shape({
