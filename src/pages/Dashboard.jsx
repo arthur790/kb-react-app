@@ -9,10 +9,11 @@ const Dashboard = () => {
   const { user} = useUserContext();
 
   const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() =>{
     console.log('user',user);
-
+    setLoading(true);
     getProfileUser(user.token)
               .then((res) =>{
                 console.log('res', res);
@@ -22,11 +23,14 @@ const Dashboard = () => {
                       position: "top-right"
                     });
               }).finally(() =>{
+                setLoading(false);
               })
 
   },[])
 
   if (!profile) return "Sin resultados";
+
+  if( loading) return (<><p className="text-3xl text-blue-app-800 font-bold">Cargando...</p></>)
 
   return (
     <>

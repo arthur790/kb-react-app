@@ -3,7 +3,7 @@ import React from 'react'
 const ApodList = ({apods = []}) => {
 
   return (
-    <div className='grid gap-4 md:max-w-screen-lg'>
+    <div className='grid gap-4 '>
    
         {
             apods.map((apod, index) =>(

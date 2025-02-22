@@ -17,6 +17,9 @@ const Register = () => {
       
       registerUser(name, 1, email, password)
           .then((res) =>{
+            toast.success("Registro exitoso", {
+              position: "top-right"
+            });
             navigate("/login")
           }).catch(error =>{
              toast.error(errors(error), {
