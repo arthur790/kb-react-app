@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from "yup";
 import { login } from "../core/services/auth-service"
+import { ToastContainer, toast } from 'react-toastify';
+import { errors } from '../core/util/errors-util';
 
 const Login = () => {
   const { user, setUser} = useUserContext();
@@ -21,7 +23,9 @@ const Login = () => {
         .then((res) =>{
           setUser(res.data)
         }).catch(error =>{
-          console.log('error', error)
+          toast.error(errors(error), {
+            position: "top-right"
+          });
         }).finally(() =>{
           setSubmitting(false);
         })
@@ -99,6 +103,7 @@ const Login = () => {
           </form>
         )}
       </Formik>
+      <ToastContainer />
     </>
     
   )

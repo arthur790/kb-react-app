@@ -2,6 +2,8 @@ import { Formik } from 'formik';
 import { validationRegisterSchema } from '../core/schemas/users-schema'
 import { registerUser } from '../core/services/users-service';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import { errors } from '../core/util/errors-util';
 
 
 const Register = () => {
@@ -17,7 +19,9 @@ const Register = () => {
           .then((res) =>{
             navigate("/login")
           }).catch(error =>{
-            console.log('error', error)
+             toast.error(errors(error), {
+                        position: "top-right"
+                      });
           }).finally(() =>{
             setSubmitting(false);
           })
@@ -99,6 +103,7 @@ const Register = () => {
                 </form>
               )}
             </Formik>
+             <ToastContainer />
     </>
   )
 }

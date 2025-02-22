@@ -4,7 +4,7 @@ import ApodList from '../components/apod/ApodList';
 import ApodFilter from '../components/apod/ApodFilter';
 import APodSearch from '../components/apod/APodSearch';
 import { ToastContainer, toast } from 'react-toastify';
-import { errorsNasa } from '../core/util/errors-util';
+import { errors } from '../core/util/errors-util';
 
 const Home = () => {
 
@@ -41,7 +41,7 @@ const Home = () => {
   }
   const showErrors = (err) =>{
     
-    toast.error(errorsNasa(err), {
+    toast.error(errors(err), {
       position: "top-right"
     });
   }

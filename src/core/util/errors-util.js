@@ -1,7 +1,7 @@
 
 
 
-export const errorsNasa = (err) =>{
+export const errors = (err) =>{
 
     if(err.code){
         switch(err.code){

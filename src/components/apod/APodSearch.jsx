@@ -13,7 +13,7 @@ const APodSearch = ({ changeSearch }) => {
     return (
         <>
             <div className="grid gap-2 ">
-                <h3 className="text-sm font-bold ">Realiza una busqueda:</h3>
+                <h3 className="text-sm font-bold ">Realiza una búsqueda:</h3>
                 <div className="md:flex grid gap-2   ">
                     <div className="md:flex grid   gap-4 rounded-md">
                         <div className="grid ">
